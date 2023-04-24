@@ -15,13 +15,15 @@ npm install --save-dev css-modules-typescript-loader
 After installing these dependencies, you can import your SCSS files in your React components like this:
 
 ```javascript
-import styles from './styles.module.scss';
+import styles from './App.module.scss';
 
-function MyComponent() {
+function App() {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Hello World!</h1>
     </div>
   );
 }
+
+export default App
 ```
