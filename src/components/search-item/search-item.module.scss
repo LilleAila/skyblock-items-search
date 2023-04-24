@@ -1,0 +1,52 @@
+.itemListItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    padding: 8px;
+    font-size: 20px;
+}
+
+.itemImage {
+    height: 100%;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+.common {
+    color: rgb(232, 230, 227);
+}
+
+.uncommon {
+    color: rgb(85, 255, 85)
+}
+
+.rare {
+    color: rgb(85, 147, 255);
+}
+
+.epic {
+    color: rgb(255, 85, 255);
+}
+
+.legendary {
+    color: rgb(255, 179, 26);
+}
+
+.mythic {
+    color: rgb(255, 85, 255);
+}
+
+.divine {
+    color: rgb(85, 255, 255);
+}
+
+.special {
+    color: rgb(255, 85, 85);
+}
+
+.very-special {
+    color: rgb(255, 85, 85);
+}
