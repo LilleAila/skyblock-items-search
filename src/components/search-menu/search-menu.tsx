@@ -8,43 +8,53 @@ export interface SearchMenuProps {
     maxDisplayedItems?: number;
 }
 
+// interface SkyblockItem {
+//     [key: string]: any;
+//     material?: string;
+//     skin?: string;
+//     name: string;
+//     tier?: string;
+//     // npc_sell_price?: number;
+//     id: string;
+// }
+
 interface SkyblockItem {
     [key: string]: any;
-    material?: string;
-    skin?: string;
     name: string;
-    tier?: string;
-    // npc_sell_price?: number;
     id: string;
+    item_id: number;
+    tier?: string;
 }
 
-const textDecoder = new TextDecoder("utf-8")
-
 export const SearchMenu = ({ className, maxDisplayedItems }: SearchMenuProps) => {
+    // const [fullData, setFullData] = useState<SkyblockItem[]>([]);
     const [data, setData] = useState<SkyblockItem[]>([]);
-    const [bukkit, setBukkit] = useState<any>({});
+    const [itemIds, setItemIds] = useState<any>({});
     useEffect(() => {
         async function fetchData() {
-            const itemsResponse: any = await fetch('https://api.hypixel.net/resources/skyblock/items');
+            const itemsResponse: any = await fetch('https://api.slothpixel.me/api/skyblock/items');
             const itemsData: any = await itemsResponse.json();
-            setData(itemsData["items"]
-                .map((item: SkyblockItem) => {
+            // setFullData(itemsData);
+            setData(Object.values(itemsData)
+                .map((item: any) => {
                     const modifiedName = item.name.replace(/§./gi, "").replace(/%%.+%%/gi, "");
                     return { ...item, name: modifiedName }
                 })
-                .sort((a: SkyblockItem, b: SkyblockItem) => a.id.localeCompare(b.id)));
+                .sort((a: any, b: any) => a.id.localeCompare(b.id))
+            )
 
-            const bukkitResponse: any = await fetch('/src/assets/BukkitToVanilla.json');
-            const bukkitData: any = await bukkitResponse.json();
-            setBukkit(bukkitData);
+            const idsResponse: any = await fetch("/src/assets/itemIds.json");
+            const idsData: any = await idsResponse.json();
+            setItemIds(idsData);
         }
         fetchData();
     }, []);
 
-    const [items, setItems] = useState<SkyblockItem[]>(data)
     // useEffect(() => {
-    //     setItems(data);
-    // }, [data])
+    //     console.log(itemIds)
+    // }, [itemIds])
+
+    const [items, setItems] = useState<SkyblockItem[]>(data)
 
     const [val, setVal] = useState<string>("")
     function filterItems(e: any) {
@@ -69,25 +79,48 @@ export const SearchMenu = ({ className, maxDisplayedItems }: SearchMenuProps) =>
                 <ul className={styles.searchList}>{
                     items.map((item: SkyblockItem, i: number) => {
                         let image = undefined;
-                        // if(item.material == "SKULL_ITEM") {
-                        //     console.log(JSON.parse(atob(item.skin ?? "")))
-                        // }
+                        let icon = undefined;
 
-                        // console.log(item.matierial == "SKULL_ITEM")
-                        // console.log(item.material == "SKULL_ITEM")
-
-                        if (item.skin) {
-                            // const decoded = Buffer.from((item.skin ?? ""), 'base64'); // Only works in node.js
-                            const decoded = window.atob(item.skin ?? ""); // Only works in web browser
+                        if (item.texture) {
                             image =
-                                'https://mc-heads.net/head/' +
-                                JSON.parse(decoded).textures.SKIN['url'].split('texture/')[1];
+                                'https://mc-heads.net/head/' + item.texture;
                         }
-                        else {
-                            image =
-                                'https://assets.mcasset.cloud/1.8.9/assets/minecraft/textures/items/' +
-                                (item['material'] ?? '').toLowerCase() +
-                                '.png';
+                        else if(item.id) {
+                            let itemId: string = item["item_id"]
+                                .toString();
+
+                            if(/ENCHANTED_.+_LOG/.test(item.id)) {
+                                const idSuffixes: any = {
+                                    oak: ':0',
+                                    spruce: ':1',
+                                    birch: ':2',
+                                    acacia: ':0',
+                                    dark: ':1',
+                                    jungle: ':3'
+                                  };
+                                  
+                                  itemId += idSuffixes[item["id"].split("_")[1].toLowerCase()];
+                            }
+                            else if(item.id.includes(":")) itemId += ":" + item.id.split(":")[1];
+                            else itemId += ":0";
+
+                            let itemTextId = (itemIds[itemId] ?? "");
+
+                            // if(itemTextId.includes("stairs") &&
+                            //     ["acacia", "birch", "dark_oak", "jungle", "spruce", "oak"].some(a => itemTextId.includes(a))) {
+                            //     itemTextId = itemTextId
+                            //         .split("").reverse().join("")
+                            //         .replace("_", "_doow_")
+                            //         .split("").reverse().join("");
+                            //     console.log(itemTextId);
+                            // } // Code doesn't completely work and i just switched to icons-minecraft2.module.scss instead
+
+                            // if(item["item_id"] == 162) console.log(item.id)
+
+                            icon = itemTextId
+                                .replaceAll("_", "-")
+                                .split("minecraft:")[1]
+                            // console.log(itemId, itemTextId);
                         }
 
                         return (
@@ -95,6 +128,7 @@ export const SearchMenu = ({ className, maxDisplayedItems }: SearchMenuProps) =>
                                 itemName={item.name}
                                 image={image}
                                 key={'item_' + i}
+                                icon={icon}
                                 className={SearchItemStyles[(item.tier ?? 'COMMON').toLowerCase()]}
                             />
                         );
