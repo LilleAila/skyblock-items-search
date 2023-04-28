@@ -3,7 +3,7 @@
   "private": false,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "skyblock-items-search/",
+  "homepage": "https://lilleaila.github.io/skyblock-items-search/",
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",
