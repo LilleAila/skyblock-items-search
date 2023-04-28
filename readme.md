@@ -26,7 +26,8 @@ Boots up a local static web server that serves the files from dist at [`http://l
 
 ### `npm run deploy`
 
-Build the application in production mode into the `dist` folder, and pushes it to a branch called `gh-pages`. Github pages will need to be set up with that branch for this to work, and the `homepage` field in `package.json` and the `base` field in vite.config.ts had to be updated.
+Build the application in production mode into the `dist` folder, and pushes it to a branch called `gh-pages`. Github pages will need to be set up with that branch for this to work, and the `homepage` field in `package.json` and the `base` field in vite.config.ts had to be updated.\
+Sometimes after cloning the repo, I have to change `base` in `vite.config.ts` to `/` and then back to the repo name `/skyblock-items-search/`. You should only have to do this if you make a fork of the repo, and not if you just contribute to it.
 
 ## Background
 

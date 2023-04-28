@@ -123,10 +123,7 @@ export const SearchMenu = ({ className, maxDisplayedItems }: SearchMenuProps) =>
                                   itemId += idSuffixes[item["id"].split("_")[1].toLowerCase()];
                             }
                             else if(item.id.includes(":")) itemId += ":" + item.id.split(":")[1];
-                            else if(Object.keys(edge).includes(item["id"].toLowerCase())) {
-                                itemId += ":" + edge[item["id"].toLowerCase()].toString();
-                                console.log(itemId);
-                            }
+                            else if(Object.keys(edge).includes(item["id"].toLowerCase())) itemId += ":" + edge[item["id"].toLowerCase()].toString();
                             else itemId += ":0";
 
                             let itemTextId = (itemIds[itemId] ?? "");
