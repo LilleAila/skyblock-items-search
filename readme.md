@@ -1,6 +1,6 @@
 # Skyblock item list and search
 
-Built with React, TypeScript + SWC and Sass, using Vite
+Built with React, TypeScript and SASS, using Vite
 
 ## Contributing
 
@@ -30,7 +30,7 @@ Build the application in production mode into the `dist` folder, and pushes it t
 
 ## Background
 
-This project was built using Vite, React, SCSS and CSS Modules.\
+This project was built using Vite, React, SCSS, CSS Modules, TypeScript and SWC.\
 The commands used to create this project are below:
 ### To create an app with vite, run the following command:
 
