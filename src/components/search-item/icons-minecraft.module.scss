@@ -1,5 +1,5 @@
 .icon-32 {
-    background-image: url('/src/assets/InvSprite.webp');
+    background-image: url(/InvSprite.webp);
     image-rendering: crisp-edges;
     display:inline-block;
     height:calc(32px / var(--n));
