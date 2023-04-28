@@ -79,8 +79,8 @@ export const SearchMenu = ({ className, maxDisplayedItems }: SearchMenuProps) =>
                 />
                 <ul className={styles.searchList}>{
                     val.length > 0 && items.map((item: SkyblockItem, i: number) => {
-                        let image = undefined;
-                        let icon = undefined;
+                        let image = "";
+                        let icon = "";
 
                         if (item.texture) {
                             image =

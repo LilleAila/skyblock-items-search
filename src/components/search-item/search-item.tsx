@@ -11,14 +11,14 @@ export interface SearchItemProps {
 
 export const SearchItem = ({ className, itemName, image, icon }: SearchItemProps) => {
     return (
-        <div className={styles.root + " " + className}>
+        <div className={((styles.root + " ") ?? "") + className}>
             <li className={styles.itemListItem}>
                 {itemName}
-                {image != "" && (<img
+                {(image != "" && icon == "") && (<img
                     src={image}
                     className={styles.itemImage}
                 />)}
-                {icon && (<i className={mcStyles2["icon-minecraft"] + " " + mcStyles2["icon-minecraft-" + icon]}></i>)}
+                {(icon) && (<i className={mcStyles2["icon-minecraft"] + " " + mcStyles2["icon-minecraft-" + icon]}></i>)}
                 {/* {icon && (<div className={mcStyles["icon-32"] + " " + mcStyles["icon-size-64"] + " " + mcStyles[icon]}></div>)} */}
             </li>
         </div>
