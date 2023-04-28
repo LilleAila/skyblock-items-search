@@ -43,7 +43,8 @@ export const SearchMenu = ({ className, maxDisplayedItems }: SearchMenuProps) =>
                 .sort((a: any, b: any) => a.id.localeCompare(b.id))
             )
 
-            const idsResponse: any = await fetch("/src/assets/itemIds.json");
+            // const idsResponse: any = await fetch("/src/assets/itemIds.json");
+            const idsResponse: any = await fetch("itemIds.json");
             const idsData: any = await idsResponse.json();
             setItemIds(idsData);
         }
