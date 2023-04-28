@@ -78,3 +78,7 @@ export default App
     - [@sfirew/minecraft-motd-parser](https://www.npmjs.com/package/@sfirew/minecraft-motd-parser)
     - [mcmotdparser](https://www.npmjs.com/package/mcmotdparser)
 - [ ] Save current search value to url and search for the same item on reload
+- [ ] Add links to items to go to another page
+    - General info
+    - Bazaar prices
+    - Auction prices
