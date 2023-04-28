@@ -7,6 +7,8 @@ export interface SearchItemProps {
     itemName: string;
     image?: string;
     icon?: string;
+    glowing: string;
+    itemId: string;
 }
 
 export const SearchItem = ({ className, itemName, image, icon }: SearchItemProps) => {

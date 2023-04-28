@@ -24,6 +24,7 @@ interface SkyblockItem {
     id: string;
     item_id: number;
     tier?: string;
+    glowing?: boolean;
 }
 
 export const SearchMenu = ({ className, maxDisplayedItems }: SearchMenuProps) => {
@@ -115,9 +116,11 @@ export const SearchMenu = ({ className, maxDisplayedItems }: SearchMenuProps) =>
                         return (
                             <SearchItem
                                 itemName={item.name}
+                                itemId={item.id}
                                 image={image}
                                 key={'item_' + i}
                                 icon={icon}
+                                glowing={item.glowing ? "true": "false"}
                                 className={SearchItemStyles[(item.tier ?? 'COMMON').toLowerCase()]}
                             />
                         );
