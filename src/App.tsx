@@ -5,7 +5,7 @@ function App() {
     return (
         <div className={styles.App}>
             <h1>Skyblock Item Search</h1>
-            <SearchMenu maxDisplayedItems={25} />
+            <SearchMenu maxDisplayedItems={5} />
         </div>
     );
 }

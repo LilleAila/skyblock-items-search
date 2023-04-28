@@ -78,7 +78,7 @@ export const SearchMenu = ({ className, maxDisplayedItems }: SearchMenuProps) =>
                     onChange={filterItems}
                 />
                 <ul className={styles.searchList}>{
-                    items.map((item: SkyblockItem, i: number) => {
+                    val.length > 0 && items.map((item: SkyblockItem, i: number) => {
                         let image = undefined;
                         let icon = undefined;
 
@@ -107,21 +107,9 @@ export const SearchMenu = ({ className, maxDisplayedItems }: SearchMenuProps) =>
 
                             let itemTextId = (itemIds[itemId] ?? "");
 
-                            // if(itemTextId.includes("stairs") &&
-                            //     ["acacia", "birch", "dark_oak", "jungle", "spruce", "oak"].some(a => itemTextId.includes(a))) {
-                            //     itemTextId = itemTextId
-                            //         .split("").reverse().join("")
-                            //         .replace("_", "_doow_")
-                            //         .split("").reverse().join("");
-                            //     console.log(itemTextId);
-                            // } // Code doesn't completely work and i just switched to icons-minecraft2.module.scss instead
-
-                            // if(item["item_id"] == 162) console.log(item.id)
-
                             icon = itemTextId
                                 .replaceAll("_", "-")
                                 .split("minecraft:")[1]
-                            // console.log(itemId, itemTextId);
                         }
 
                         return (
