@@ -68,7 +68,12 @@ export default App
     - More edge cases like stairs
 - [X] Left-align text in search items
 - [ ] Enchentment glints
+    - [Altpapier/GlintCreator](https://github.com/Altpapier/GlintCreator)
 - [ ] More efficient rendering without remaking everything
     - Only what needs to be updated - the ones before the limit (split before not after)
     - Maybe draw in a variable and use `useEffect()` to not have to re-make list if nothing changed
         - (Only a small effect because nothing changes so no redrawing)
+- [ ] Use a MOTD parser library to add colors if there are colors in item names
+    - [minecraft-motd-parser](https://www.npmjs.com/package/minecraft-motd-parser)
+    - [@sfirew/minecraft-motd-parser](https://www.npmjs.com/package/@sfirew/minecraft-motd-parser)
+    - [mcmotdparser](https://www.npmjs.com/package/mcmotdparser)
