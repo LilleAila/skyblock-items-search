@@ -61,3 +61,14 @@ function App() {
 
 export default App
 ```
+
+## TODO:
+
+- [ ] Change to icon-minecraft.module.css for higher quality textures
+    - More edge cases like stairs
+- [X] Left-align text in search items
+- [ ] Enchentment glints
+- [ ] More efficient rendering without remaking everything
+    - Only what needs to be updated - the ones before the limit (split before not after)
+    - Maybe draw in a variable and use `useEffect()` to not have to re-make list if nothing changed
+        - (Only a small effect because nothing changes so no redrawing)

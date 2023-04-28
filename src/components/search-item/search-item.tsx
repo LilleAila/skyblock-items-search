@@ -15,7 +15,7 @@ export const SearchItem = ({ className, itemName, image, icon }: SearchItemProps
     return (
         <div className={((styles.root + " ") ?? "") + className}>
             <li className={styles.itemListItem}>
-                {itemName}
+                <span className={styles.itemName}>{itemName}</span>
                 {(image != "" && icon == "") && (<img
                     src={image}
                     className={styles.itemImage}
