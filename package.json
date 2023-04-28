@@ -1,7 +1,7 @@
 {
-  "name": "my-react-app",
-  "private": true,
-  "version": "0.0.0",
+  "name": "skyblock-items-search",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
   "homepage": "skyblock-items-search/",
   "scripts": {
