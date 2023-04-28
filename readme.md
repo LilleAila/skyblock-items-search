@@ -77,3 +77,4 @@ export default App
     - [minecraft-motd-parser](https://www.npmjs.com/package/minecraft-motd-parser)
     - [@sfirew/minecraft-motd-parser](https://www.npmjs.com/package/@sfirew/minecraft-motd-parser)
     - [mcmotdparser](https://www.npmjs.com/package/mcmotdparser)
+- [ ] Save current search value to url and search for the same item on reload
