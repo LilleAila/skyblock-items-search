@@ -82,3 +82,4 @@ export default App
     - General info
     - Bazaar prices
     - Auction prices
+- [ ] Fix spawn egg textures not showing, like "Spawn Jerry", "Inflatable Jerry" and "Island NPC"
