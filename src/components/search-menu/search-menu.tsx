@@ -70,6 +70,25 @@ export const SearchMenu = ({ className, maxDisplayedItems }: SearchMenuProps) =>
         }))
     }, [val, data])
 
+    // Spawn egg ids: (search "spawn" or "383")
+    // https://minecraft-ids.grahamedgecombe.com/
+    // Eggs are manually added to itemids.json with "383:[EGG_ID]"
+    const edge: any = {
+        enchanted_cocoa: 3,
+        dungeon_decoy: 56, // Dungeon decoy = decoy
+        training_dummy: 102,
+        super_egg: 56, // Super egg = super enchanted egg
+        island_npc: 102,
+        assistant: 120, // Move jerry = assistant
+        inflatable_jerry: 120,
+        omega_egg: 5, // Omega egg = omega enchanted egg
+        amalgamated_crimsonite_new: 52,
+        amalgamated_crimsonite: 52,
+        null_ovoid: 58,
+        red_claw_egg: 96,
+        sam_assistant: 101, // Sam assistant = move sam
+    }
+
     return (
         <div className={styles.root + " " + className}>
             <div>
@@ -104,13 +123,19 @@ export const SearchMenu = ({ className, maxDisplayedItems }: SearchMenuProps) =>
                                   itemId += idSuffixes[item["id"].split("_")[1].toLowerCase()];
                             }
                             else if(item.id.includes(":")) itemId += ":" + item.id.split(":")[1];
+                            else if(Object.keys(edge).includes(item["id"].toLowerCase())) {
+                                itemId += ":" + edge[item["id"].toLowerCase()].toString();
+                                console.log(itemId);
+                            }
                             else itemId += ":0";
 
                             let itemTextId = (itemIds[itemId] ?? "");
 
+                            if(itemTextId.includes("spawn_egg")) itemTextId = "spawn-egg-" + itemTextId.replace("_spawn_egg", "")
+
                             icon = itemTextId
                                 .replaceAll("_", "-")
-                                .split("minecraft:")[1]
+                                .replace("minecraft:", "")
                         }
 
                         return (

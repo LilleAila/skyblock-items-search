@@ -82,4 +82,4 @@ export default App
     - General info
     - Bazaar prices
     - Auction prices
-- [ ] Fix spawn egg textures not showing, like "Spawn Jerry" (Villager), "Inflatable Jerry" (Villager), "Island NPC" (Ghast), "Decoy" (Ghast), "Red Claw Egg" (Mooshroom cow), "Super Enchanted Egg" (Ghast), "Move Sam" (Rabbit), "Omega Enchanted Egg" (Endermite)
+- [X] Fix spawn egg textures not showing, like "Spawn Jerry" (Villager), "Inflatable Jerry" (Villager), "Island NPC" (Ghast), "Decoy" (Ghast), "Red Claw Egg" (Mooshroom cow), "Super Enchanted Egg" (Ghast), "Move Sam" (Rabbit), "Omega Enchanted Egg" (Endermite)
