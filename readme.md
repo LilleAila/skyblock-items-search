@@ -4,7 +4,7 @@ Built with React, TypeScript and SASS, using Vite
 
 ## Contributing
 
-Clone this repository with `git clone https://github.com/LilleAila/skyblock-items-search.git`, and run `npm install` to install required development packages.\
+Clone this repository with `git clone https://github.com/LilleAila/skyblock-items-search.git`, and run `npm ci` (not `npm install`) to install required development packages.\
 Change what you want in `src` and `src/components`, and open a pull request on GitHub.
 
 ## Available Scripts
